@@ -13,7 +13,6 @@ package("freeglut")
     if is_plat("linux", "windows") then
         add_deps("cmake")
     end
-
     if is_plat("linux") then
         add_deps("libx11", "libxi", "libxxf86vm", "libxrandr", "libxrender")
         add_deps("glx", {optional = true})
