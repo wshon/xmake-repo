@@ -1,5 +1,4 @@
 package("freeglut")
-
     set_homepage("http://freeglut.sourceforge.net")
     set_description("A free-software/open-source alternative to the OpenGL Utility Toolkit (GLUT) library.")
 
