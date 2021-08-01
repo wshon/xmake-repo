@@ -10,6 +10,8 @@ package("opengl")
             elseif package:is_plat("windows", "mingw") then
                 return {links = "opengl32"}
             elseif package:is_plat("linux") and package.find_package then
+                print("xxxzz", os.getenv("PATH"))
+                print("find", find_package("opengl"))
                 return package:find_package("opengl", opt) or package:find_package("libgl", opt)
             end
         end
