@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - dev
+      - test
 
 jobs:
   build:
@@ -35,6 +35,9 @@ jobs:
         env:
           XMAKE_ROOT: y
         run: |
+          xmake l find_package opengl
+          xmake l find_package glu
+          pkg-config --libs --cflags opengl
           xmake l ./scripts/test.lua -D -k ${{ matrix.kind }} -j1
 
 
