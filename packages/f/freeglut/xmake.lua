@@ -16,15 +16,16 @@ package("freeglut")
 
     if is_plat("linux") then
         add_deps("libx11", "libxi", "libxxf86vm", "libxrandr", "libxrender")
-        add_syslinks("GLU", "GL")
+        add_deps("glx", {optional = true})
     end
+    add_deps("glu", "opengl", {optional = true})
 
     on_load("windows", function (package)
         if not package:config("shared") then
             package:add("defines", "FREEGLUT_STATIC=1")
         end
         package:add("defines", "FREEGLUT_LIB_PRAGMAS=0")
-        package:add("syslinks", "glu32", "opengl32", "gdi32", "winmm", "user32", "advapi32")
+        package:add("syslinks", "gdi32", "winmm", "user32", "advapi32")
     end)
 
     on_install("linux", "windows", function (package)

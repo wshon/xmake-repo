@@ -20,6 +20,7 @@ package("glfw")
 
     add_deps("cmake")
 
+    add_deps("opengl", {optional = true})
     if is_plat("macosx") then
         add_frameworks("Cocoa", "IOKit")
     elseif is_plat("windows") then
